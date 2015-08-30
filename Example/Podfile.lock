@@ -32,6 +32,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  OctopusKit: 01dbd073c72f6b60f9f09dbde4dfb3627edc4615
+  OctopusKit: b410f48a16811af0de9e1b52fa2718e0c0d14e0f
 
 COCOAPODS: 0.35.0

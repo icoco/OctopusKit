@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "OctopusKit"
   s.version          = "0.1.0"
-  s.summary          = "OctopusKit is a simplicity but graceful solution for invoke RESTful web service APIs, it can use for big team development, another benift is it also can use to auto generate web service class file if use some MOT tools"
+  s.summary          = "OctopusKit is a simplicity but graceful solution for invoke RESTful web service APIs"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+OctopusKit is a simplicity but graceful solution for invoke RESTful web service APIs,it will help coder develop app based MVC pattern; it can use for big team development, another benift is it also can use to auto generate web service class file if use some MOT tools
                        DESC
 
   s.homepage         = "https://github.com/icoco/OctopusKit"
@@ -36,5 +37,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'OctopusKit/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'AFNetworking', '~> 2.3'
+   s.dependency 'AFNetworking', '~> 2.5.4'
 end
