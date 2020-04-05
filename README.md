@@ -1,7 +1,7 @@
 # OctopusKit
 OctopusKit is a simplicity but graceful solution for invoke RESTful web service APIs,it can help coder develop app based MVC pattern, it can use for big team development; Another benift is that it also can be use to auto generate web service class file if use some M2T tools, save cost and raplidy the app develop progress.
 
-##Motivation
+## Motivation
 
  Almost all mobile app is iApp that will call backend web APIs pull or submit data, we want a grace solution suport the RESTfull APIs layer in our app, slipt the network API logic layer and  View layer, in other words, we want coder should change the tranditional thinking that coding the web call in View or Controller layer but should in SDK layer indeed. 
 
@@ -23,7 +23,7 @@ To run the Demo project, clone the repo, and run `pod install` from the Demo dir
 
 It based AFNetworking
 
-##Notice
+## Notice
 
 Please check the SDK demo project also the TestCase file, understand the usage then enjoy the way~
 
