@@ -31,9 +31,9 @@ OctopusKit is a simplicity but graceful solution for invoke RESTful web service 
   s.requires_arc = true
 
   s.source_files = 'OctopusKit/Classes/**/*','OctopusKit/Vendor/**/*'
-  s.resource_bundles = {
-    'OctopusKit' => ['OctopusKit/Assets/*.png']
-  }
+#s.resource_bundles = {
+#    'OctopusKit' => ['OctopusKit/Assets/*.png']
+#  }
 
   # s.public_header_files = 'OctopusKit/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
