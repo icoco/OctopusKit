@@ -7,10 +7,16 @@ OctopusKit is a simplicity but graceful solution for invoke RESTful web service 
 
  All RESTfull APIs will be map to a static method, that will be easy maintenance, easy extendable also simply to apply in App development.
  
+
+## Layer Diagram
+
+![image](img/layer.png?raw=true)
+
+
 ## Usage
 To integrate in your project, just add in pod file:
 
-  pod 'OctopusKit', '~> 0.1.0'
+  pod 'OctopusKit', '~> 0.3.0'
 
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

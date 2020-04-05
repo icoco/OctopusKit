@@ -43,10 +43,10 @@
 
 - (NSString*)getUrl{
     
-    NSString* root = [OCWebServiceConfig sharedInstance].apiRootUrl;
+    NSString* baseUrl = [OCWebServiceConfig sharedInstance].apiBaseUrl;
     NSString* appInfo = [self getAppInfo];
   //  NSString* queryString = RKPercentEscapedQueryStringFromStringWithEncoding(appInfo,NSUTF8StringEncoding);
-    NSString* url = [NSString stringWithFormat:@"%@/%@?",root,self.route  ];
+    NSString* url = [NSString stringWithFormat:@"%@%@?",baseUrl,self.route  ];
     
     return url;
 }

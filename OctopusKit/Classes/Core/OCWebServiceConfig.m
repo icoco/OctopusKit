@@ -7,9 +7,7 @@
 //
 
 #import "OCWebServiceConfig.h"
-
-#define OCWebServiceApiRoot @"http://opencart.i2cart.com"
-#define OCWebServiceApiVersion @"2.0.3"
+ 
 
 
 @implementation OCWebServiceConfig
@@ -29,9 +27,7 @@
 
 -(id)init {
     if (self = [super init])  {
-        //default
-        self.version = OCWebServiceApiVersion;
-        self.apiRootUrl = OCWebServiceApiRoot;
+   
     }
     return self;
 }

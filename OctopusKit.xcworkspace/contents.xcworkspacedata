@@ -2,9 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Example/OctopusKit.xcodeproj">
+      location = "group:Bundle/OctopusKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Example/Pods/Pods.xcodeproj">
+      location = "group:DemoApp/DemoApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SDK/SDK.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SDK/Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

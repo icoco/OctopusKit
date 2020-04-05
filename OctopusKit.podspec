@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "OctopusKit"
-  s.version          = "0.1.0"
+  s.version          = "0.3.0"
   s.summary          = "OctopusKit is a simplicity but graceful solution for invoke RESTful web service APIs"
 
 # This description is used to generate tags and improve search results.
@@ -37,5 +37,5 @@ OctopusKit is a simplicity but graceful solution for invoke RESTful web service 
 
   # s.public_header_files = 'OctopusKit/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'AFNetworking', '~> 2.5.4'
+   s.dependency 'AFNetworking', '~> 3.2.1'
 end

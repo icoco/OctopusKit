@@ -1,0 +1,37 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - OctopusKit (0.2.0):
+    - AFNetworking (~> 3.2.1)
+
+DEPENDENCIES:
+  - OctopusKit (from `../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+
+EXTERNAL SOURCES:
+  OctopusKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  OctopusKit: 0baf2f4cf7eb5c4e490127d77d99a8df115584cc
+
+PODFILE CHECKSUM: 12c1b26b643d9df2fcb5945a726adbc0f7b94639
+
+COCOAPODS: 1.8.0.beta.1

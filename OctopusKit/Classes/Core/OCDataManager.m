@@ -7,12 +7,12 @@
 //
 
 #import "OCDataManager.h"
-#import <AFURLRequestSerialization.h>
-#import <AFNetworkActivityIndicatorManager.h>
+#import "AFURLRequestSerialization.h"
+#import "AFNetworkActivityIndicatorManager.h"
 #import "OCWebService.h"
- 
+
 @interface OCDataManager (){
-    AFHTTPRequestOperationManager * _operator;
+    AFHTTPSessionManager * _operator;
     
     NSString* _token;
 }
@@ -34,14 +34,14 @@
     return _instance;
 }
 
-- (AFHTTPRequestOperationManager*) getRequestOperator{
+- (AFHTTPSessionManager*) getRequestOperator{
     if (nil == _operator) {
-        _operator = [AFHTTPRequestOperationManager manager];
+        _operator = [AFHTTPSessionManager manager];
     }
     return _operator;
 }
 
-- (void)setupJsonMode:(AFHTTPRequestOperationManager*) operator{
+- (void)setupJsonMode:(AFHTTPSessionManager*) operator{
     operator.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
 
     operator.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -57,7 +57,7 @@
 }
 
 
-- (void)setHeader:(AFHTTPRequestOperationManager*)operator header:(NSDictionary*)header{
+- (void)setHeader:(AFHTTPSessionManager*)operator header:(NSDictionary*)header{
     if (nil == header) {
         return;
     }
@@ -66,7 +66,7 @@
     }];
 }
 
-+ (void)handleSucessResponse:(AFHTTPRequestOperation *)operation response:(id) response success:(OCInvokeSuccessBlock)success successFilter:(OCFilterBlock)successFilter failure:(OCInvokeFailureBlock)failure{
++ (void)handleSucessResponse:(NSURLSessionDataTask *)operation response:(id) response success:(OCInvokeSuccessBlock)success successFilter:(OCFilterBlock)successFilter failure:(OCInvokeFailureBlock)failure{
     NSLog(@"handleSucessResponse->operation:[%@],\n JSON:[%@]", operation, response);
     NSException* exception = nil;// [OCWebService dataExceptionWithResponse:response];
     
@@ -84,9 +84,9 @@
     success(response);
 }
 
-+ (void)handleFailureResponse:(AFHTTPRequestOperation *)operation error:(NSError *)error failure:(OCInvokeFailureBlock)failure{
++ (void)handleFailureResponse:(NSURLSessionDataTask *)operation error:(NSError *)error failure:(OCInvokeFailureBlock)failure{
    
-    NSString *buf = [[NSString alloc] initWithData:operation.responseData  encoding:NSUTF8StringEncoding];
+    NSString *buf = [[NSString alloc] initWithData:operation.response  encoding:NSUTF8StringEncoding];
     NSLog(@"handleFailureResponse->operation:[%@],\nreponse:[%@],\n error:[%@]", operation,buf, error);
     
     failure( error);
@@ -95,10 +95,10 @@
 
 - (void)POST:(NSString*)url  params:(NSDictionary*)params  success:(OCInvokeSuccessBlock)success successFilter:(OCFilterBlock)successFilter failure:(OCInvokeFailureBlock)failure {
     
-    [_operator POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_operator POST:url parameters:params success:^(NSURLSessionDataTask *operation, id responseObject) {
         [OCDataManager handleSucessResponse:operation response:responseObject success:success successFilter:successFilter failure:failure];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         [OCDataManager handleFailureResponse:operation error:error failure:failure];
     }];
     
@@ -107,14 +107,26 @@
 
 - (void)GET:(NSString*)url params:(NSDictionary*)params  success:(OCInvokeSuccessBlock)success successFilter:(OCFilterBlock)successFilter failure:(OCInvokeFailureBlock)failure {
     
-    [_operator GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_operator GET:url parameters:params success:^(NSURLSessionDataTask *operation, id responseObject) {
         [OCDataManager handleSucessResponse:operation response:responseObject success:success successFilter:successFilter failure:failure];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         [OCDataManager handleFailureResponse:operation error:error failure:failure];
     }];
 }
 
+
+- (void)DELETE:(NSString*)url  params:(NSDictionary*)params  success:(OCInvokeSuccessBlock)success successFilter:(OCFilterBlock)successFilter failure:(OCInvokeFailureBlock)failure {
+    
+    [_operator DELETE:url parameters:params success:^(NSURLSessionDataTask *operation, id responseObject) {
+        [OCDataManager handleSucessResponse:operation response:responseObject success:success successFilter:successFilter failure:failure];
+        
+    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+        [OCDataManager handleFailureResponse:operation error:error failure:failure];
+    }];
+    
+    
+}
 
 - (void)request:(NSString*)url method:(NSString*)method params:(NSDictionary*)params  success:(OCInvokeSuccessBlock)success successFilter:(OCFilterBlock)successFilter failure:(OCInvokeFailureBlock)failure {
     
@@ -127,7 +139,10 @@
         [self GET:url params:params success:success successFilter:successFilter failure:failure];
         return;
     }
-    
+    if ([@"DELETE" isEqualToString:method]) {
+        [self DELETE:url params:params success:success successFilter:successFilter failure:failure];
+        return;
+    }
 }
 
 - (void)request:(NSString*)url method:(NSString*)method params:(NSDictionary*)params header:(NSDictionary*)header success:(OCInvokeSuccessBlock)success successFilter:(OCFilterBlock)successFilter failure:(OCInvokeFailureBlock)failure {

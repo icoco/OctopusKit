@@ -1,0 +1,16 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+project 'SDK'
+workspace '../OctopusKit'
+inhibit_all_warnings!
+
+
+target 'SDK' do
+  pod "OctopusKit", :path => "../"
+end
+
+target 'SDKTests' do
+  pod "OctopusKit", :path => "../"
+
+  
+end

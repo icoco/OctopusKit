@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 #import "OCDataManager.h"
 #import "OCDictionaryUtilities.h"
 
 static NSString* const kHTTP_REQUEST_METHOD_POST = @"POST";
 static NSString* const kHTTP_REQUEST_METHOD_GET = @"GET";
+static NSString* const kHTTP_REQUEST_METHOD_DELETE = @"DELETE";
 
 @class OCWebService;
 

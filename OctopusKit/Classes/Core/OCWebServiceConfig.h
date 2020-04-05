@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface OCWebServiceConfig : NSObject
-//version = 2.0.3
-@property(nonatomic,strong)NSString* version;
 
-//apiRootUrl = http://opencart.i2cart.com
-@property(nonatomic,strong)NSString* apiRootUrl;
+@property(nonatomic,strong)NSString* version;
+ 
+@property(nonatomic,strong)NSString* apiBaseUrl;
 
 + (instancetype)sharedInstance;
 @end
