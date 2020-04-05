@@ -19,13 +19,13 @@ To integrate in your project, just add in pod file:
   pod 'OctopusKit', '~> 0.3.0'
 
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the Demo project, clone the repo, and run `pod install` from the Demo directory first.
 
 It based AFNetworking
 
 ##Notice
 
-Please check the OpenCartService example also the TestCase file, understand the usage then enjoy the way~
+Please check the SDK demo project also the TestCase file, understand the usage then enjoy the way~
 
 ## License
 
